@@ -1,0 +1,1 @@
+/* js - ecore validation ui */

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Copy Me</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+	<header>
+		<h1>ECORE-JS-Validation-UI <span>by Edward Margallo</span></h1>
+	</header>
+
+	<section>
+		<p>This plugin allows for a toast style element to appear when a validation error occurs on a user form.</p>
+		<p>This plugin is intended for very long web forms where users may have a hard time trying to find where a
+			validation errors occurs. This ideal situation would apply especially to mobile/tablet devices. I would
+			recommend a UI aid such as this to allow for a more pleasant user experience with lengthy forms.</p>
+		<p>NOTE: To get straight to the demo, I have already pre-filled data into the form, purposely leaving some
+			fields blank to force a validation error, thus triggering the script. All you need to do is click "SUBMIT"
+			down below.</p>
+	</section>
+
+	<form>
+		<fieldset>
+			<legend>Fieldset</legend>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" required />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Fieldset</legend>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Fieldset</legend>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input id="field" type="text" value="Some text" />
+				</label>
+			</div>
+		</fieldset>
+		<div>
+			<button type="submit">SUBMIT</button>
+		</div>
+	</form>
+	<!-- Scripts -->
+	<script src="js/ecore-validation-ui.js"></script>
+</body>
+
+</html>
