@@ -1,6 +1,8 @@
 /* css - ecore validation ui */
 
-$width-content-main: 50%;
+$width-content-main-desktop: 50%;
+$width-content-main-tablet: 75%;
+$width-content-main-mobile: 95%;
 
 body {
 	display: flex;
@@ -13,7 +15,7 @@ body {
 }
 
 header {
-	width: $width-content-main;
+	width: $width-content-main-desktop;
 	margin-bottom: 2rem;
 	position: sticky;
 	top: 0;
@@ -27,12 +29,12 @@ header {
 }
 
 section {
-	width: $width-content-main;
+	width: $width-content-main-desktop;
 	margin-bottom: 2rem;
 }
 
 form {
-	width: $width-content-main;
+	width: $width-content-main-desktop;
 }
 
 fieldset {
@@ -72,12 +74,20 @@ textarea:invalid {
 	background: red;
 }
 
-@media screen and (max-width: 768px) {
-	$width-content-main: 100%;
+@media screen and (max-width: 1023px) {
 
 	header,
 	section,
 	form {
-		width: $width-content-main;
+		width: $width-content-main-tablet;
+	}
+}
+
+@media screen and (max-width: 767px) {
+
+	header,
+	section,
+	form {
+		width: $width-content-main-mobile;
 	}
 }

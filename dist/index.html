@@ -7,11 +7,13 @@
 </head>
 
 <body>
+
 	<header>
 		<h1>ECORE-JS-Validation-UI <span>by Edward Margallo</span></h1>
-		<div class=""><span class="error-count"></span></div>
-		<div class="error-checker"><span class=""></span></div>
-		<a class="ecore-validate-next">Next Error</a>
+		<div class="ecore-validate-ui">
+			<div class="">Error Count: <span class="error-count"></span></div>
+			<a class="ecore-validate-next">Next Error</a>
+		</div>
 	</header>
 
 	<section>
@@ -29,7 +31,7 @@
 	</section>
 
 	<!-- The script will analyze elements with the "ecore-validate-ui" class -->
-	<form class="ecore-validate-ui">
+	<form class="ecore-validate">
 		<fieldset>
 			<legend>Fieldset</legend>
 			<div class="row">

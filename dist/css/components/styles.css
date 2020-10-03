@@ -1,6 +1,6 @@
 /*! ECORE-JS-Validation-UI v0.0.1 | (c) 2020 YOUR NAME | MIT License | https://github.com/edwardm/ECORE-JS-Validation-UI */
 /* css - ecore validation ui */
-/* line 5, src/sass/components/styles.scss */
+/* line 7, src/sass/components/styles.scss */
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -18,7 +18,7 @@ body {
   color: #444;
 }
 
-/* line 15, src/sass/components/styles.scss */
+/* line 17, src/sass/components/styles.scss */
 header {
   width: 50%;
   margin-bottom: 2rem;
@@ -29,24 +29,24 @@ header {
   border-bottom: 1px solid #ccc;
 }
 
-/* line 23, src/sass/components/styles.scss */
+/* line 25, src/sass/components/styles.scss */
 header h1 span {
   font-size: 1rem;
   color: #999;
 }
 
-/* line 29, src/sass/components/styles.scss */
+/* line 31, src/sass/components/styles.scss */
 section {
   width: 50%;
   margin-bottom: 2rem;
 }
 
-/* line 34, src/sass/components/styles.scss */
+/* line 36, src/sass/components/styles.scss */
 form {
   width: 50%;
 }
 
-/* line 38, src/sass/components/styles.scss */
+/* line 40, src/sass/components/styles.scss */
 fieldset {
   border: none;
   padding: 0;
@@ -54,7 +54,7 @@ fieldset {
   border-top: 2px solid #ccc;
 }
 
-/* line 45, src/sass/components/styles.scss */
+/* line 47, src/sass/components/styles.scss */
 fieldset legend {
   padding: 0 .4rem 0 0;
   margin-bottom: 1rem;
@@ -62,35 +62,44 @@ fieldset legend {
   font-weight: bold;
 }
 
-/* line 52, src/sass/components/styles.scss */
+/* line 54, src/sass/components/styles.scss */
 fieldset .row {
   margin-bottom: 2rem;
 }
 
-/* line 56, src/sass/components/styles.scss */
+/* line 58, src/sass/components/styles.scss */
 fieldset .row label span {
   font-size: 0.8rem;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-/* line 62, src/sass/components/styles.scss */
+/* line 64, src/sass/components/styles.scss */
 fieldset .row label input[type=text] {
   padding: 0.4rem;
 }
 
-/* line 69, src/sass/components/styles.scss */
+/* line 71, src/sass/components/styles.scss */
 input:invalid,
 select:invalid,
 textarea:invalid {
   background: red;
 }
 
-@media screen and (max-width: 768px) {
-  /* line 78, src/sass/components/styles.scss */
+@media screen and (max-width: 1023px) {
+  /* line 79, src/sass/components/styles.scss */
   header,
   section,
   form {
-    width: 100%;
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* line 88, src/sass/components/styles.scss */
+  header,
+  section,
+  form {
+    width: 95%;
   }
 }

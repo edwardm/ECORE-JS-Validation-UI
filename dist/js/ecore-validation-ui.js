@@ -2,27 +2,28 @@
 /* jshint esversion: 6 */
 /* js - ecore validation ui */
 
-let ecoreValidateContainer = document.querySelector(".ecore-validate-ui");
+let ecoreValidateContainer = document.querySelector(".ecore-validate");
+let ecoreValidateUi = document.querySelector(".ecore-validate-ui");
+let ecoreValidateErrorCount = document.querySelector(".error-count");
 let ecoreValidateSubmit = document.querySelector(".ecore-validate-submit");
 let ecoreValidateNextError = document.querySelector(".ecore-validate-next");
 let ecoreValidateAllInputs = document.querySelector("input, textarea, select");
-let ecoreValidateInvalidField = document.querySelector("input:invalid, textarea:invalid, select:invalid");
-console.log(ecoreValidateInvalidField);
+let ecoreValidateInvalidField;
 let FormErrorCount = 0;
 
 document.addEventListener("DOMContentLoaded", (function () {
-
 	/* check if the class exists */
 	if (ecoreValidateContainer.length > 0) {
 
 		function CheckErrorCount() {
+			ecoreValidateInvalidField = document.querySelectorAll("input:invalid, textarea:invalid, select:invalid");
 			FormErrorCount = ecoreValidateInvalidField.length;
-			$(".error-count").html(FormErrorCount);
 			console.log("FormErrorCount: " + FormErrorCount);
+			ecoreValidateErrorCount.innerHTML = FormErrorCount;
 		}
 
 		function CheckForErrors() {
-			$(".error-checker").css("display", "block").addClass('animated bounce');;
+			ecoreValidateUi.css("display", "block").addClass('animated bounce');;
 
 			CheckErrorCount();
 
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", (function () {
 		function CheckErrorsOnBlurFocus() {
 			CheckErrorCount();
 			if (!ecoreValidateInvalidField.length) {
-				$(".error-checker, .validation-summary-errors").css("display", "none");
+				$(".ecore-validate-ui, .validation-summary-errors").css("display", "none");
 			}
 		}
 
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", (function () {
 		// $(".btn-back").on("click", function () {
 		// 	// on back button, let the error checking hide
 		// 	// since you leave the section, it can cause confusion
-		// 	$(".error-checker, .validation-summary-errors").css("display", "none");
+		// 	$(".ecore-validate-ui, .validation-summary-errors").css("display", "none");
 		// });
 
 		// error button to scroll to errors
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", (function () {
 			if (ecoreValidateInvalidField.length > 0) {
 				CheckForErrors();
 			} else {
-				$(".error-checker, .validation-summary-errors").css("display", "none");
+				$(".ecore-validate-ui, .validation-summary-errors").css("display", "none");
 			}
 		});
 
@@ -85,12 +86,16 @@ document.addEventListener("DOMContentLoaded", (function () {
 				CheckErrorsOnBlurFocus();
 			}), 200);
 
-			$("select").change((function () {
-				// set delay, for DOM to update
-				setTimeout((function () {
-					CheckErrorsOnBlurFocus();
-				}), 200);
-			}));
+			if (document.querySelector("select") !== null) {
+				document.querySelector("select").addEventListener("change", (e) => {
+					// set delay, for DOM to update
+					setTimeout((function () {
+						CheckErrorsOnBlurFocus();
+					}), 200);
+				});
+			}
 		});
+	} else {
+		console.log("ecoreValidateContainer class not found or defined")
 	}
 }));
