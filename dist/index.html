@@ -9,6 +9,9 @@
 <body>
 	<header>
 		<h1>ECORE-JS-Validation-UI <span>by Edward Margallo</span></h1>
+		<div class=""><span class="error-count"></span></div>
+		<div class="error-checker"><span class=""></span></div>
+		<a class="ecore-validate-next">Next Error</a>
 	</header>
 
 	<section>
@@ -25,7 +28,8 @@
 			down below.</p>
 	</section>
 
-	<form>
+	<!-- The script will analyze elements with the "ecore-validate-ui" class -->
+	<form class="ecore-validate-ui">
 		<fieldset>
 			<legend>Fieldset</legend>
 			<div class="row">
@@ -164,9 +168,13 @@
 			</div>
 		</fieldset>
 		<div>
-			<button type="submit">SUBMIT</button>
+			<button type="submit" class="ecore-validate-submit">SUBMIT</button>
 		</div>
 	</form>
+
+	<div>
+
+	</div>
 	<!-- Scripts -->
 	<script src="js/ecore-validation-ui.js"></script>
 </body>

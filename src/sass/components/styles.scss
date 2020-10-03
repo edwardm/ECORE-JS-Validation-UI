@@ -1,5 +1,7 @@
 /* css - ecore validation ui */
 
+$width-content-main: 50%;
+
 body {
 	display: flex;
 	flex-direction: column;
@@ -11,7 +13,7 @@ body {
 }
 
 header {
-	width: 50%;
+	width: $width-content-main;
 	margin-bottom: 2rem;
 	position: sticky;
 	top: 0;
@@ -25,12 +27,12 @@ header {
 }
 
 section {
-	width: 50%;
+	width: $width-content-main;
 	margin-bottom: 2rem;
 }
 
 form {
-	width: 50%;
+	width: $width-content-main;
 }
 
 fieldset {
@@ -61,5 +63,21 @@ fieldset {
 				padding: 0.4rem;
 			}
 		}
+	}
+}
+
+input:invalid,
+select:invalid,
+textarea:invalid {
+	background: red;
+}
+
+@media screen and (max-width: 768px) {
+	$width-content-main: 100%;
+
+	header,
+	section,
+	form {
+		width: $width-content-main;
 	}
 }
