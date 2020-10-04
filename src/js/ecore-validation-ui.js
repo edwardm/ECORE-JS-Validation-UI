@@ -8,7 +8,7 @@ let ecoreValidateSubmit = document.querySelector(".ecore-validate-submit");
 let ecoreValidateNextError = document.querySelector(".ecore-validate-next");
 let ecoreValidateAllInputs = document.querySelector("input, textarea, select");
 let ecoreValidateInvalidField;
-let CurrentFormError
+let CurrentFormError;
 let FormErrorCount = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (ecoreValidateContainer.length > 0) {
 
 		function CheckErrorCount() {
-			ecoreValidateInvalidField = ecoreValidateContainer.querySelectorAll("input:invalid, textarea:invalid, select:invalid");
+			ecoreValidateInvalidField = ecoreValidateContainer.querySelectorAll("input:invalid", "textarea:invalid", "select:invalid");
 			FormErrorCount = ecoreValidateInvalidField.length;
 			console.log("FormErrorCount: " + FormErrorCount);
 			ecoreValidateErrorCount.innerHTML = FormErrorCount;
@@ -27,20 +27,44 @@ document.addEventListener("DOMContentLoaded", function () {
 			ecoreValidateUi.classList.remove('animate__animated', 'animate__fadeOutRight');
 			ecoreValidateUi.classList.add('animate__animated', 'animate__bounce');
 
-			CheckErrorCount();
+			ecoreValidateContainer.querySelectorAll("input", "textarea", "select").forEach(item => {
+				item.classList.remove("ecore-error");
+			});
 
 			if (FormErrorCount !== 0) {
+
+				ecoreValidateContainer.querySelectorAll("input:invalid", "textarea:invalid", "select:invalid").forEach(item => {
+					item.classList.add("ecore-error");
+				});
+
 				CurrentFormError = ecoreValidateInvalidField[0]; /* 0 index to get the first*/
 				console.log("CurrentFormError = " + CurrentFormError);
 
+				// reset class to fix
+				// ecoreValidateContainer.querySelectorAll("input", "textarea", "select").forEach(item => {
+				// 	item.classList.remove("ecore-error");
+				// })
+
 				CurrentFormError.scrollIntoView();
+
 				CurrentFormError.classList.add('animate__animated', 'animate__shakeX');
 
 				setTimeout(function () {
 					CurrentFormError.classList.remove('animate__animated', 'animate__shakeX');
 				}, 500);
+
+				// ecoreValidateContainer.querySelectorAll("input:invalid", "textarea:invalid", "select:invalid").forEach(item => {
+				// 	item.classList.add("ecore-error");
+				// })
+
+
 			} else {
 				console.log("no errors");
+
+				ecoreValidateContainer.querySelectorAll("input", "textarea", "select").forEach(item => {
+					item.classList.remove("ecore-error");
+				})
+
 				ecoreValidateUi.classList.add('animate__animated', 'animate__fadeOutRight');
 				// ecoreValidateUi.style.display = "none";
 			}
@@ -51,16 +75,16 @@ document.addEventListener("DOMContentLoaded", function () {
 			CheckForErrors();
 		}
 
-		// "next" button. make it scroll to error, or to top
-		ecoreValidateSubmit.addEventListener("click", (e) => {
-			if (ecoreValidateInvalidField.length !== null) {
-				CheckForErrors();
-			}
-		});
-
-		// error button to scroll to errors
+		// CLICK
+		// "go to error" button
 		ecoreValidateNextError.addEventListener("click", (e) => {
 			CheckErrorCount();
+			CheckForErrors();
+
+			ecoreValidateContainer.querySelectorAll("input:invalid", "textarea:invalid", "select:invalid").forEach(item => {
+				item.classList.add("ecore-error");
+			});
+
 			if (FormErrorCount !== 0) {
 				CheckForErrors();
 			} else {
@@ -68,22 +92,67 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		});
 
-		// on BLUR of form fields
-		ecoreValidateAllInputs.addEventListener("blur", (e) => {
-			// set delay, for DOM to update
-			setTimeout(function () {
-				CheckErrorsOnBlurFocus();
-			}, 200);
+		// CLICK
+		// "submit" button
+		ecoreValidateSubmit.addEventListener("click", (e) => {
 
-			if (document.querySelector("select") !== null) {
-				document.querySelector("select").addEventListener("change", (e) => {
+			// CheckErrorsOnBlurFocus();
+
+			CheckErrorCount();
+			CheckForErrors()
+
+			ecoreValidateContainer.querySelectorAll("input:invalid", "textarea:invalid", "select:invalid").forEach(item => {
+				item.classList.add("ecore-error");
+			});
+
+			ecoreValidateContainer.querySelectorAll("input", "type", "textarea").forEach(item => {
+				item.addEventListener('blur', (e) => {
+					// CheckErrorCount();
+					// CheckForErrors()
+
 					// set delay, for DOM to update
 					setTimeout(function () {
 						CheckErrorsOnBlurFocus();
 					}, 200);
-				});
-			}
+
+					if (document.querySelector("select") !== null) {
+						document.querySelector("select").addEventListener("change", (e) => {
+							// set delay, for DOM to update
+							setTimeout(function () {
+								CheckErrorsOnBlurFocus();
+							}, 200);
+						});
+					}
+				})
+			})
 		});
+
+		// BLUR
+		// all INPUT fields
+		ecoreValidateContainer.querySelectorAll("input", "type", "textarea").forEach(item => {
+			item.addEventListener('blur', (e) => {
+				CheckErrorCount();
+				CheckForErrors();
+
+				ecoreValidateContainer.querySelectorAll("input:invalid", "textarea:invalid", "select:invalid").forEach(item => {
+					item.classList.add("ecore-error");
+				});
+
+				// set delay, for DOM to update
+				setTimeout(function () {
+					CheckErrorsOnBlurFocus();
+				}, 200);
+
+				if (document.querySelector("select") !== null) {
+					document.querySelector("select").addEventListener("change", (e) => {
+						// set delay, for DOM to update
+						setTimeout(function () {
+							CheckErrorsOnBlurFocus();
+						}, 200);
+					});
+				}
+			})
+		})
 	} else {
 		console.log("ecoreValidateContainer class not found or defined")
 	}

@@ -1,8 +1,10 @@
 /* css - ecore validation ui */
 
+/* sass stuff */
+
 $width-content-main-desktop: 50%;
-$width-content-main-tablet: 75%;
-$width-content-main-mobile: 95%;
+$width-content-main-tablet: 80%;
+$width-content-main-mobile: 100%;
 
 html {
 	scroll-behavior: smooth;
@@ -16,15 +18,33 @@ body {
 	font-size: 1.2rem;
 	line-height: 1.6rem;
 	color: #444;
+	margin: 0;
+	background: #f5f5f5;
 }
+
+/* typography */
 
 h1 {
 	font-size: 1.6rem;
 	font-weight: bold;
 }
 
-header {
+/* layout */
+
+.container {
 	width: $width-content-main-desktop;
+	padding-bottom: 3rem;
+	background: #fff;
+	-webkit-box-shadow: 0 0 5px 0 #ddd;
+	box-shadow: 0 0 5px 0 #ddd;
+
+	>* {
+		margin: 5%;
+	}
+}
+
+header {
+	padding-top: 1rem;
 	margin-bottom: 2rem;
 	position: sticky;
 	top: 0;
@@ -38,7 +58,6 @@ header {
 }
 
 section {
-	width: $width-content-main-desktop;
 	margin-bottom: 2rem;
 }
 
@@ -56,6 +75,7 @@ section {
 	color: #000;
 	border: 1px solid #ccc;
 	border-top: 2px solid red;
+	border-right: none;
 	border-radius: 5px 0 0 5px;
 	background: #ffffff;
 	background: -moz-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
@@ -84,7 +104,6 @@ section {
 }
 
 form {
-	width: $width-content-main-desktop;
 
 	fieldset {
 
@@ -101,11 +120,12 @@ form {
 		}
 
 		.row {
-			margin-bottom: 2rem;
 
-			label {
+			>label,
+			>div {
 				display: flex;
 				flex-direction: column;
+				padding-bottom: 2rem;
 
 				span {
 					font-size: 0.75rem;
@@ -127,6 +147,7 @@ form {
 	input,
 	select,
 	textarea {
+		font-family: Arial, Helvetica, sans-serif;
 		padding: 0.5rem 0.75rem;
 		border: 1px solid #ccc;
 		border-radius: 4px;
@@ -138,12 +159,36 @@ form {
 		border-color: #666;
 	}
 
+	// input:invalid,
+	// select:invalid,
+	// textarea:invalid {
+	// 	border: 1px solid red;
+	// 	background: lightpink;
+	// }
 
-	input:invalid,
-	select:invalid,
-	textarea:invalid {
+	.ecore-error {
 		border: 1px solid red;
 		background: lightpink;
+	}
+
+	button {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 0.9rem;
+		letter-spacing: 0.02rem;
+		font-weight: bold;
+		display: block;
+		margin-left: auto;
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		border: 1px solid #ccc;
+		background: -moz-linear-gradient(-45deg, #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+		background: -webkit-linear-gradient(-45deg, #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+		background: linear-gradient(135deg, #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=1);
+
+		&:hover {
+			opacity: 0.7;
+		}
 	}
 }
 
@@ -151,11 +196,14 @@ form {
 
 @media screen and (max-width: 1023px) {
 
-	header,
-	section,
-	form {
+	.container {
 		width: $width-content-main-tablet;
+
+		>* {
+			margin: auto 5%;
+		}
 	}
+
 
 	.ecore-validate-ui {
 		top: initial;
@@ -163,16 +211,23 @@ form {
 		text-align: center;
 		width: 50vw;
 		left: 22.5vw;
+		border-right: 1px solid #ccc;
 		border-radius: 5px 5px 0 0;
 	}
 }
 
 @media screen and (max-width: 767px) {
 
-	header,
-	section,
-	form {
+	.container {
 		width: $width-content-main-mobile;
+
+		>* {
+			margin: auto 5%;
+		}
+	}
+
+	h1 span {
+		display: block;
 	}
 }
 
@@ -337,6 +392,8 @@ form {
 	-webkit-animation-name: shakeX;
 	animation-name: shakeX;
 }
+
+
 
 @-webkit-keyframes fadeOutRight {
 	from {

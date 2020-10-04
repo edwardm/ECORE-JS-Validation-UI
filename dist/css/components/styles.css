@@ -1,11 +1,12 @@
 /*! ECORE-JS-Validation-UI v0.0.1 | (c) 2020 YOUR NAME | MIT License | https://github.com/edwardm/ECORE-JS-Validation-UI */
 /* css - ecore validation ui */
-/* line 7, src/sass/components/styles.scss */
+/* sass stuff */
+/* line 9, src/sass/components/styles.scss */
 html {
   scroll-behavior: smooth;
 }
 
-/* line 11, src/sass/components/styles.scss */
+/* line 13, src/sass/components/styles.scss */
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -21,17 +22,35 @@ body {
   font-size: 1.2rem;
   line-height: 1.6rem;
   color: #444;
+  margin: 0;
+  background: #f5f5f5;
 }
 
-/* line 21, src/sass/components/styles.scss */
+/* typography */
+/* line 27, src/sass/components/styles.scss */
 h1 {
   font-size: 1.6rem;
   font-weight: bold;
 }
 
-/* line 26, src/sass/components/styles.scss */
-header {
+/* layout */
+/* line 34, src/sass/components/styles.scss */
+.container {
   width: 50%;
+  padding-bottom: 3rem;
+  background: #fff;
+  -webkit-box-shadow: 0 0 5px 0 #ddd;
+  box-shadow: 0 0 5px 0 #ddd;
+}
+
+/* line 41, src/sass/components/styles.scss */
+.container > * {
+  margin: 5%;
+}
+
+/* line 46, src/sass/components/styles.scss */
+header {
+  padding-top: 1rem;
   margin-bottom: 2rem;
   position: -webkit-sticky;
   position: sticky;
@@ -40,19 +59,18 @@ header {
   border-bottom: 1px solid #ccc;
 }
 
-/* line 34, src/sass/components/styles.scss */
+/* line 54, src/sass/components/styles.scss */
 header h1 span {
   font-size: 1rem;
   color: #999;
 }
 
-/* line 40, src/sass/components/styles.scss */
+/* line 60, src/sass/components/styles.scss */
 section {
-  width: 50%;
   margin-bottom: 2rem;
 }
 
-/* line 45, src/sass/components/styles.scss */
+/* line 64, src/sass/components/styles.scss */
 .ecore-validate-ui {
   position: fixed;
   top: 35vh;
@@ -64,6 +82,7 @@ section {
   color: #000;
   border: 1px solid #ccc;
   border-top: 2px solid red;
+  border-right: none;
   border-radius: 5px 0 0 5px;
   background: #ffffff;
   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eeeeee));
@@ -71,14 +90,14 @@ section {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
 }
 
-/* line 67, src/sass/components/styles.scss */
+/* line 87, src/sass/components/styles.scss */
 .ecore-validate-ui > .error-count {
   display: block;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-/* line 73, src/sass/components/styles.scss */
+/* line 93, src/sass/components/styles.scss */
 .ecore-validate-ui .ecore-validate-next {
   display: block;
   cursor: pointer;
@@ -89,12 +108,7 @@ section {
   background: linear-gradient(135deg, #ff3019 0%, #cf0404 100%);
 }
 
-/* line 86, src/sass/components/styles.scss */
-form {
-  width: 50%;
-}
-
-/* line 89, src/sass/components/styles.scss */
+/* line 108, src/sass/components/styles.scss */
 form fieldset {
   border: none;
   padding: 0;
@@ -102,7 +116,7 @@ form fieldset {
   border-top: 2px solid #ccc;
 }
 
-/* line 96, src/sass/components/styles.scss */
+/* line 115, src/sass/components/styles.scss */
 form fieldset legend {
   padding: 0 .4rem 0 0;
   margin-bottom: 1rem;
@@ -110,13 +124,9 @@ form fieldset legend {
   font-weight: bold;
 }
 
-/* line 103, src/sass/components/styles.scss */
-form fieldset .row {
-  margin-bottom: 2rem;
-}
-
-/* line 106, src/sass/components/styles.scss */
-form fieldset .row label {
+/* line 124, src/sass/components/styles.scss */
+form fieldset .row > label,
+form fieldset .row > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -124,85 +134,116 @@ form fieldset .row label {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-bottom: 2rem;
 }
 
-/* line 110, src/sass/components/styles.scss */
-form fieldset .row label span {
+/* line 130, src/sass/components/styles.scss */
+form fieldset .row > label span,
+form fieldset .row > div span {
   font-size: 0.75rem;
   font-weight: bold;
   letter-spacing: 0.02rem;
   text-transform: uppercase;
 }
 
-/* line 118, src/sass/components/styles.scss */
-form fieldset .row label.required span::after {
+/* line 138, src/sass/components/styles.scss */
+form fieldset .row > label.required span::after,
+form fieldset .row > div.required span::after {
   content: "*";
   margin-left: 5px;
   color: red;
 }
 
-/* line 127, src/sass/components/styles.scss */
+/* line 147, src/sass/components/styles.scss */
 form input,
 form select,
 form textarea {
+  font-family: Arial, Helvetica, sans-serif;
   padding: 0.5rem 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-/* line 135, src/sass/components/styles.scss */
+/* line 156, src/sass/components/styles.scss */
 form input:focus,
 form select:focus,
 form text-area:focus {
   border-color: #666;
 }
 
-/* line 142, src/sass/components/styles.scss */
-form input:invalid,
-form select:invalid,
-form textarea:invalid {
+/* line 169, src/sass/components/styles.scss */
+form .ecore-error {
   border: 1px solid red;
   background: lightpink;
 }
 
+/* line 174, src/sass/components/styles.scss */
+form button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.02rem;
+  font-weight: bold;
+  display: block;
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background: linear-gradient(135deg, #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=1);
+}
+
+/* line 189, src/sass/components/styles.scss */
+form button:hover {
+  opacity: 0.7;
+}
+
 /* responsive tablet/mobile */
 @media screen and (max-width: 1023px) {
-  /* line 154, src/sass/components/styles.scss */
-  header,
-  section,
-  form {
-    width: 75%;
+  /* line 199, src/sass/components/styles.scss */
+  .container {
+    width: 80%;
   }
-  /* line 160, src/sass/components/styles.scss */
+  /* line 202, src/sass/components/styles.scss */
+  .container > * {
+    margin: auto 5%;
+  }
+  /* line 208, src/sass/components/styles.scss */
   .ecore-validate-ui {
     top: initial;
     bottom: 0;
     text-align: center;
     width: 50vw;
     left: 22.5vw;
+    border-right: 1px solid #ccc;
     border-radius: 5px 5px 0 0;
   }
 }
 
 @media screen and (max-width: 767px) {
-  /* line 172, src/sass/components/styles.scss */
-  header,
-  section,
-  form {
-    width: 95%;
+  /* line 221, src/sass/components/styles.scss */
+  .container {
+    width: 100%;
+  }
+  /* line 224, src/sass/components/styles.scss */
+  .container > * {
+    margin: auto 5%;
+  }
+  /* line 229, src/sass/components/styles.scss */
+  h1 span {
+    display: block;
   }
 }
 
 /* animations */
 /* animations from https://animate.style/ */
-/* line 182, src/sass/components/styles.scss */
+/* line 237, src/sass/components/styles.scss */
 :root {
   --animate-duration: 1s;
   --animate-delay: 1s;
   --animate-repeat: 1;
 }
 
-/* line 188, src/sass/components/styles.scss */
+/* line 243, src/sass/components/styles.scss */
 .animate__animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -282,7 +323,7 @@ form textarea:invalid {
   }
 }
 
-/* line 277, src/sass/components/styles.scss */
+/* line 332, src/sass/components/styles.scss */
 .animate__bounce {
   -webkit-animation-name: bounce;
   animation-name: bounce;
@@ -336,7 +377,7 @@ form textarea:invalid {
   }
 }
 
-/* line 336, src/sass/components/styles.scss */
+/* line 391, src/sass/components/styles.scss */
 .animate__shakeX {
   -webkit-animation-name: shakeX;
   animation-name: shakeX;
@@ -364,7 +405,7 @@ form textarea:invalid {
   }
 }
 
-/* line 365, src/sass/components/styles.scss */
+/* line 422, src/sass/components/styles.scss */
 .animate__fadeOutRight {
   -webkit-animation-name: fadeOutRight;
   animation-name: fadeOutRight;
