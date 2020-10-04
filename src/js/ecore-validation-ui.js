@@ -8,6 +8,7 @@ let ecoreValidateSubmit = document.querySelector(".ecore-validate-submit");
 let ecoreValidateNextError = document.querySelector(".ecore-validate-next");
 let ecoreValidateAllInputs = document.querySelector("input, textarea, select");
 let ecoreValidateInvalidField;
+let CurrentFormError
 let FormErrorCount = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -15,68 +16,57 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (ecoreValidateContainer.length > 0) {
 
 		function CheckErrorCount() {
-			ecoreValidateInvalidField = document.querySelectorAll("input:invalid, textarea:invalid, select:invalid");
+			ecoreValidateInvalidField = ecoreValidateContainer.querySelectorAll("input:invalid, textarea:invalid, select:invalid");
 			FormErrorCount = ecoreValidateInvalidField.length;
 			console.log("FormErrorCount: " + FormErrorCount);
 			ecoreValidateErrorCount.innerHTML = FormErrorCount;
 		}
 
 		function CheckForErrors() {
-			ecoreValidateUi.css("display", "block").addClass('animated bounce');;
+			ecoreValidateUi.style.display = "block";
+			ecoreValidateUi.classList.remove('animate__animated', 'animate__fadeOutRight');
+			ecoreValidateUi.classList.add('animate__animated', 'animate__bounce');
 
 			CheckErrorCount();
 
-			let FormError = ecoreValidateInvalidField.first();
+			if (FormErrorCount !== 0) {
+				CurrentFormError = ecoreValidateInvalidField[0]; /* 0 index to get the first*/
+				console.log("CurrentFormError = " + CurrentFormError);
 
-			//console.log(FormError);
-			$("html,body").animate({
-				scrollTop: $(FormError).offset().top - 200
-			}, 'fast');
+				CurrentFormError.scrollIntoView();
+				CurrentFormError.classList.add('animate__animated', 'animate__shakeX');
 
-			$(FormError).addClass('animated shake');
-			setTimeout(function () {
-				$(FormError).removeClass('shake');
-			}, 500);
+				setTimeout(function () {
+					CurrentFormError.classList.remove('animate__animated', 'animate__shakeX');
+				}, 500);
+			} else {
+				console.log("no errors");
+				ecoreValidateUi.classList.add('animate__animated', 'animate__fadeOutRight');
+				// ecoreValidateUi.style.display = "none";
+			}
 		}
 
 		function CheckErrorsOnBlurFocus() {
 			CheckErrorCount();
-			if (!ecoreValidateInvalidField.length) {
-				$(".ecore-validate-ui, .validation-summary-errors").css("display", "none");
-			}
+			CheckForErrors();
 		}
 
 		// "next" button. make it scroll to error, or to top
 		ecoreValidateSubmit.addEventListener("click", (e) => {
-			if (ecoreValidateInvalidField.length > 0) {
+			if (ecoreValidateInvalidField.length !== null) {
 				CheckForErrors();
 			}
 		});
-
-		// $(".btn-back").on("click", function () {
-		// 	// on back button, let the error checking hide
-		// 	// since you leave the section, it can cause confusion
-		// 	$(".ecore-validate-ui, .validation-summary-errors").css("display", "none");
-		// });
 
 		// error button to scroll to errors
 		ecoreValidateNextError.addEventListener("click", (e) => {
 			CheckErrorCount();
-			if (ecoreValidateInvalidField.length > 0) {
+			if (FormErrorCount !== 0) {
 				CheckForErrors();
 			} else {
-				$(".ecore-validate-ui, .validation-summary-errors").css("display", "none");
+				ecoreValidateUi.classList.add('animate__animated', 'animate__fadeOutRight');
 			}
 		});
-
-		// on ANY .btn OR <a> click, perform a check
-		// do NOT perform function on a.btn-next elements
-		// $(".btn, a:not(.btn-next)").on("click", function () {
-		// 	// set delay, for DOM to update
-		// 	setTimeout(function () {
-		// 		CheckErrorsOnBlurFocus();
-		// 	}, 400);
-		// });
 
 		// on BLUR of form fields
 		ecoreValidateAllInputs.addEventListener("blur", (e) => {

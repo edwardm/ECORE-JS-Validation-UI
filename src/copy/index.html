@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Copy Me</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
@@ -10,9 +11,9 @@
 
 	<header>
 		<h1>ECORE-JS-Validation-UI <span>by Edward Margallo</span></h1>
-		<div class="ecore-validate-ui">
-			<div class="">Error Count: <span class="error-count"></span></div>
-			<a class="ecore-validate-next">Next Error</a>
+		<div class="ecore-validate-ui" style="display: none;">
+			<div class="">Errors found: <span class="error-count"></span></div>
+			<a class="ecore-validate-next">Go to Error</a>
 		</div>
 	</header>
 
@@ -32,30 +33,59 @@
 
 	<!-- The script will analyze elements with the "ecore-validate-ui" class -->
 	<form class="ecore-validate">
+
 		<fieldset>
 			<legend>Fieldset</legend>
 			<div class="row">
-				<label>
+				<label class="required">
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" required />
+					<input type="text" value="Some text" required />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label class="required">
+					<span>Field</span>
+					<input type="text" value="Some text" required />
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Fieldset</legend>
+			<div class="row">
+				<label class="required">
+					<span>Field</span>
+					<input type="text" value="Some text" required />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input type="text" value="Some text" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Field</span>
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 		</fieldset>
@@ -65,25 +95,25 @@
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 		</fieldset>
@@ -93,82 +123,57 @@
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 		</fieldset>
+
 		<fieldset>
 			<legend>Fieldset</legend>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 			<div class="row">
 				<label>
 					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
+					<input type="text" value="Some text" />
 				</label>
 			</div>
 		</fieldset>
-		<fieldset>
-			<legend>Fieldset</legend>
-			<div class="row">
-				<label>
-					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
-				</label>
-			</div>
-			<div class="row">
-				<label>
-					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
-				</label>
-			</div>
-			<div class="row">
-				<label>
-					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
-				</label>
-			</div>
-			<div class="row">
-				<label>
-					<span>Field</span>
-					<input id="field" type="text" value="Some text" />
-				</label>
-			</div>
-		</fieldset>
+
 		<div>
 			<button type="submit" class="ecore-validate-submit">SUBMIT</button>
 		</div>
