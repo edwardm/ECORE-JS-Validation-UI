@@ -16,9 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (ecoreValidateContainer.length > 0) {
 
 		function CheckErrorCount() {
+			// hold all invalid fields
 			ecoreValidateInvalidField = ecoreValidateContainer.querySelectorAll("input:invalid", "textarea:invalid", "select:invalid");
+			// count all invalid fields
 			FormErrorCount = ecoreValidateInvalidField.length;
 			console.log("FormErrorCount: " + FormErrorCount);
+			// display count in html
 			ecoreValidateErrorCount.innerHTML = FormErrorCount;
 		}
 
@@ -45,7 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
 				// 	item.classList.remove("ecore-error");
 				// })
 
-				CurrentFormError.scrollIntoView();
+				// CurrentFormError.scrollIntoView();
+
+				window.scrollTo({
+					top: CurrentFormError.offsetTop - 200,
+					behavior: "smooth"
+				});
 
 				CurrentFormError.classList.add('animate__animated', 'animate__shakeX');
 
@@ -99,32 +107,18 @@ document.addEventListener("DOMContentLoaded", function () {
 			// CheckErrorsOnBlurFocus();
 
 			CheckErrorCount();
-			CheckForErrors()
+			CheckForErrors();
 
 			ecoreValidateContainer.querySelectorAll("input:invalid", "textarea:invalid", "select:invalid").forEach(item => {
 				item.classList.add("ecore-error");
 			});
 
-			ecoreValidateContainer.querySelectorAll("input", "type", "textarea").forEach(item => {
-				item.addEventListener('blur', (e) => {
-					// CheckErrorCount();
-					// CheckForErrors()
+			if (FormErrorCount !== 0) {
+				CheckForErrors();
+			} else {
+				ecoreValidateUi.classList.add('animate__animated', 'animate__fadeOutRight');
+			}
 
-					// set delay, for DOM to update
-					setTimeout(function () {
-						CheckErrorsOnBlurFocus();
-					}, 200);
-
-					if (document.querySelector("select") !== null) {
-						document.querySelector("select").addEventListener("change", (e) => {
-							// set delay, for DOM to update
-							setTimeout(function () {
-								CheckErrorsOnBlurFocus();
-							}, 200);
-						});
-					}
-				})
-			})
 		});
 
 		// BLUR
@@ -139,9 +133,9 @@ document.addEventListener("DOMContentLoaded", function () {
 				});
 
 				// set delay, for DOM to update
-				setTimeout(function () {
-					CheckErrorsOnBlurFocus();
-				}, 200);
+				// setTimeout(function () {
+				// 	CheckErrorsOnBlurFocus();
+				// }, 200);
 
 				if (document.querySelector("select") !== null) {
 					document.querySelector("select").addEventListener("change", (e) => {

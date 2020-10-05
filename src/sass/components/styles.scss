@@ -47,6 +47,7 @@ header {
 	padding-top: 1rem;
 	margin-bottom: 2rem;
 	position: sticky;
+	z-index: 1;
 	top: 0;
 	background: #fff;
 	border-bottom: 1px solid #ccc;
@@ -173,7 +174,7 @@ form {
 
 	button {
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: 0.9rem;
+		font-size: 1.1rem;
 		letter-spacing: 0.02rem;
 		font-weight: bold;
 		display: block;
