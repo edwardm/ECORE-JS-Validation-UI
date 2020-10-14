@@ -50,7 +50,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -61,16 +61,16 @@ table {
 }
 
 /* line 57, src/sass/components/_base.scss */
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
 /* line 65, src/sass/components/_base.scss */
-input[type=search] {
+input[type="search"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-box-sizing: content-box;
@@ -361,13 +361,13 @@ textarea {
   color: #222;
 }
 
-/* line 357, src/sass/components/_base.scss */
+/* line 356, src/sass/components/_base.scss */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
 }
 
-/* line 362, src/sass/components/_base.scss */
+/* line 361, src/sass/components/_base.scss */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -377,24 +377,24 @@ textarea {
   text-shadow: none;
 }
 
-/* line 367, src/sass/components/_base.scss */
+/* line 366, src/sass/components/_base.scss */
 img {
   vertical-align: middle;
 }
 
-/* line 371, src/sass/components/_base.scss */
+/* line 370, src/sass/components/_base.scss */
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-/* line 377, src/sass/components/_base.scss */
+/* line 376, src/sass/components/_base.scss */
 textarea {
   resize: vertical;
 }
 
-/* line 381, src/sass/components/_base.scss */
+/* line 380, src/sass/components/_base.scss */
 .chromeframe {
   margin: 0.2em 0;
   background: #ccc;
@@ -494,14 +494,14 @@ section {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
 }
 
-/* line 88, src/sass/components/styles.scss */
+/* line 87, src/sass/components/styles.scss */
 .ecore-validate-ui > .error-count {
   display: block;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-/* line 94, src/sass/components/styles.scss */
+/* line 93, src/sass/components/styles.scss */
 .ecore-validate-ui .ecore-validate-next {
   display: block;
   cursor: pointer;
@@ -512,7 +512,7 @@ section {
   background: linear-gradient(135deg, #ff3019 0%, #cf0404 100%);
 }
 
-/* line 109, src/sass/components/styles.scss */
+/* line 107, src/sass/components/styles.scss */
 form fieldset {
   border: none;
   padding: 0;
@@ -520,15 +520,15 @@ form fieldset {
   border-top: 2px solid #ccc;
 }
 
-/* line 116, src/sass/components/styles.scss */
+/* line 113, src/sass/components/styles.scss */
 form fieldset legend {
-  padding: 0 .4rem 0 0;
+  padding: 0 0.4rem 0 0;
   margin-bottom: 1rem;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-/* line 125, src/sass/components/styles.scss */
+/* line 121, src/sass/components/styles.scss */
 form fieldset .row > label,
 form fieldset .row > div {
   display: -webkit-box;
@@ -541,7 +541,7 @@ form fieldset .row > div {
   padding-bottom: 2rem;
 }
 
-/* line 131, src/sass/components/styles.scss */
+/* line 127, src/sass/components/styles.scss */
 form fieldset .row > label span,
 form fieldset .row > div span {
   font-size: 0.75rem;
@@ -550,7 +550,7 @@ form fieldset .row > div span {
   text-transform: uppercase;
 }
 
-/* line 139, src/sass/components/styles.scss */
+/* line 135, src/sass/components/styles.scss */
 form fieldset .row > label.required span::after,
 form fieldset .row > div.required span::after {
   content: "*";
@@ -558,7 +558,7 @@ form fieldset .row > div.required span::after {
   color: red;
 }
 
-/* line 148, src/sass/components/styles.scss */
+/* line 144, src/sass/components/styles.scss */
 form input,
 form select,
 form textarea {
@@ -568,20 +568,20 @@ form textarea {
   border-radius: 4px;
 }
 
-/* line 157, src/sass/components/styles.scss */
+/* line 153, src/sass/components/styles.scss */
 form input:focus,
 form select:focus,
 form text-area:focus {
   border-color: #666;
 }
 
-/* line 170, src/sass/components/styles.scss */
+/* line 166, src/sass/components/styles.scss */
 form .ecore-error {
   border: 1px solid red;
   background: lightpink;
 }
 
-/* line 175, src/sass/components/styles.scss */
+/* line 171, src/sass/components/styles.scss */
 form button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.1rem;
@@ -596,22 +596,22 @@ form button {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=1);
 }
 
-/* line 190, src/sass/components/styles.scss */
+/* line 201, src/sass/components/styles.scss */
 form button:hover {
   opacity: 0.7;
 }
 
 /* responsive tablet/mobile */
 @media screen and (max-width: 1023px) {
-  /* line 200, src/sass/components/styles.scss */
+  /* line 210, src/sass/components/styles.scss */
   .container {
     width: 80%;
   }
-  /* line 203, src/sass/components/styles.scss */
+  /* line 213, src/sass/components/styles.scss */
   .container > * {
     margin: auto 5%;
   }
-  /* line 209, src/sass/components/styles.scss */
+  /* line 218, src/sass/components/styles.scss */
   .ecore-validate-ui {
     top: initial;
     bottom: 0;
@@ -624,15 +624,15 @@ form button:hover {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 222, src/sass/components/styles.scss */
+  /* line 230, src/sass/components/styles.scss */
   .container {
     width: 100%;
   }
-  /* line 225, src/sass/components/styles.scss */
+  /* line 233, src/sass/components/styles.scss */
   .container > * {
     margin: auto 5%;
   }
-  /* line 230, src/sass/components/styles.scss */
+  /* line 238, src/sass/components/styles.scss */
   h1 span {
     display: block;
   }
@@ -640,14 +640,14 @@ form button:hover {
 
 /* animations */
 /* animations from https://animate.style/ */
-/* line 238, src/sass/components/styles.scss */
+/* line 246, src/sass/components/styles.scss */
 :root {
   --animate-duration: 1s;
   --animate-delay: 1s;
   --animate-repeat: 1;
 }
 
-/* line 244, src/sass/components/styles.scss */
+/* line 252, src/sass/components/styles.scss */
 .animate__animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -727,7 +727,7 @@ form button:hover {
   }
 }
 
-/* line 333, src/sass/components/styles.scss */
+/* line 359, src/sass/components/styles.scss */
 .animate__bounce {
   -webkit-animation-name: bounce;
   animation-name: bounce;
@@ -781,7 +781,7 @@ form button:hover {
   }
 }
 
-/* line 392, src/sass/components/styles.scss */
+/* line 416, src/sass/components/styles.scss */
 .animate__shakeX {
   -webkit-animation-name: shakeX;
   animation-name: shakeX;
@@ -809,7 +809,7 @@ form button:hover {
   }
 }
 
-/* line 423, src/sass/components/styles.scss */
+/* line 445, src/sass/components/styles.scss */
 .animate__fadeOutRight {
   -webkit-animation-name: fadeOutRight;
   animation-name: fadeOutRight;
