@@ -16,3 +16,6 @@ $ npm install
 
 ## Notes
 To get straight to the demo, I have already pre-filled data into the form, purposely leaving some fields blank to force a validation error, thus triggering the script. All you need to do is click "SUBMIT" down below.
+
+## License
+The code is available under the [MIT License](LICENSE.md).
