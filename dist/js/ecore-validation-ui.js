@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", (function () {
         // check SILENTLY
         CheckErrorCount();
 
-        // on CLICK
-        // "go to error" button
+        // on CLICK of the "go to error" button
         ecoreValidateNextError.addEventListener("click", (e) => {
             CheckErrorCount();
             CheckForErrors();
@@ -44,8 +43,7 @@ document.addEventListener("DOMContentLoaded", (function () {
             }
         });
 
-        // on CLICK
-        // "submit" button
+        // on CLICK of the "submit" button
         ecoreValidateSubmit.addEventListener("click", (e) => {
             // CheckErrorsOnBlurFocus();
 
@@ -72,8 +70,7 @@ document.addEventListener("DOMContentLoaded", (function () {
             }
         });
 
-        // BLUR
-        // all INPUT fields
+        // on BLUR of ALL INPUT fields
         ecoreValidateContainer
             .querySelectorAll("input", "type", "textarea")
             .forEach((item) => {
