@@ -38,7 +38,7 @@ h1 {
     -webkit-box-shadow: 0 0 5px 0 #ddd;
     box-shadow: 0 0 5px 0 #ddd;
 
-    >* {
+    > * {
         margin: 5%;
     }
 }
@@ -84,7 +84,7 @@ section {
     background: linear-gradient(to bottom, #ffffff 0%, #eeeeee 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
 
-    >.error-count {
+    > .error-count {
         display: block;
         font-weight: bold;
         margin-bottom: 10px;
@@ -118,9 +118,8 @@ form {
         }
 
         .row {
-
-            >label,
-            >div {
+            > label,
+            > div {
                 display: flex;
                 flex-direction: column;
                 padding-bottom: 2rem;
@@ -179,18 +178,24 @@ form {
         padding: 0.5rem 1rem;
         border-radius: 20px;
         border: 1px solid #ccc;
-        background: -moz-linear-gradient(-45deg,
-                #ffffff 0%,
-                #f6f6f6 47%,
-                #ededed 100%);
-        background: -webkit-linear-gradient(-45deg,
-                #ffffff 0%,
-                #f6f6f6 47%,
-                #ededed 100%);
-        background: linear-gradient(135deg,
-                #ffffff 0%,
-                #f6f6f6 47%,
-                #ededed 100%);
+        background: -moz-linear-gradient(
+            -45deg,
+            #ffffff 0%,
+            #f6f6f6 47%,
+            #ededed 100%
+        );
+        background: -webkit-linear-gradient(
+            -45deg,
+            #ffffff 0%,
+            #f6f6f6 47%,
+            #ededed 100%
+        );
+        background: linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f6f6f6 47%,
+            #ededed 100%
+        );
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=1);
 
         &:hover {
@@ -205,7 +210,7 @@ form {
     .container {
         width: $width-content-main-tablet;
 
-        >* {
+        > * {
             margin: auto 5%;
         }
     }
@@ -225,7 +230,7 @@ form {
     .container {
         width: $width-content-main-mobile;
 
-        >* {
+        > * {
             margin: auto 5%;
         }
     }
@@ -254,7 +259,6 @@ form {
 }
 
 @-webkit-keyframes bounce {
-
     from,
     20%,
     53%,
@@ -267,20 +271,24 @@ form {
 
     40%,
     43% {
-        -webkit-animation-timing-function: cubic-bezier(0.755,
-                0.05,
-                0.855,
-                0.06);
+        -webkit-animation-timing-function: cubic-bezier(
+            0.755,
+            0.05,
+            0.855,
+            0.06
+        );
         animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
         -webkit-transform: translate3d(0, -30px, 0) scaleY(1.1);
         transform: translate3d(0, -30px, 0) scaleY(1.1);
     }
 
     70% {
-        -webkit-animation-timing-function: cubic-bezier(0.755,
-                0.05,
-                0.855,
-                0.06);
+        -webkit-animation-timing-function: cubic-bezier(
+            0.755,
+            0.05,
+            0.855,
+            0.06
+        );
         animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
         -webkit-transform: translate3d(0, -15px, 0) scaleY(1.05);
         transform: translate3d(0, -15px, 0) scaleY(1.05);
@@ -300,7 +308,6 @@ form {
 }
 
 @keyframes bounce {
-
     from,
     20%,
     53%,
@@ -313,20 +320,24 @@ form {
 
     40%,
     43% {
-        -webkit-animation-timing-function: cubic-bezier(0.755,
-                0.05,
-                0.855,
-                0.06);
+        -webkit-animation-timing-function: cubic-bezier(
+            0.755,
+            0.05,
+            0.855,
+            0.06
+        );
         animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
         -webkit-transform: translate3d(0, -30px, 0) scaleY(1.1);
         transform: translate3d(0, -30px, 0) scaleY(1.1);
     }
 
     70% {
-        -webkit-animation-timing-function: cubic-bezier(0.755,
-                0.05,
-                0.855,
-                0.06);
+        -webkit-animation-timing-function: cubic-bezier(
+            0.755,
+            0.05,
+            0.855,
+            0.06
+        );
         animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
         -webkit-transform: translate3d(0, -15px, 0) scaleY(1.05);
         transform: translate3d(0, -15px, 0) scaleY(1.05);
@@ -353,7 +364,6 @@ form {
 }
 
 @-webkit-keyframes shakeX {
-
     from,
     to {
         -webkit-transform: translate3d(0, 0, 0);
@@ -379,7 +389,6 @@ form {
 }
 
 @keyframes shakeX {
-
     from,
     to {
         -webkit-transform: translate3d(0, 0, 0);
