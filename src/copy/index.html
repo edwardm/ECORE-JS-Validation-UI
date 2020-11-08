@@ -9,14 +9,13 @@
 
 <body>
 
+	<header>
+		<h1>ECORE-JS-Validation-UI</h1>
+		<span>A plugin by <a href="https://edwardmargallo.com/" target="_blank">Edward
+				Margallo</a></span>
+	</header>
+
 	<div class="container">
-		<header>
-			<h1>ECORE-JS-Validation-UI <span>by Edward Margallo</span></h1>
-			<div class="ecore-validate-ui" style="display: none;">
-				<div class="">Errors found: <span class="error-count"></span></div>
-				<a class="ecore-validate-next">Go to Error</a>
-			</div>
-		</header>
 
 		<section>
 			<p>This plugin allows for a toast style element to appear when a validation error occurs on a user form.
@@ -184,12 +183,17 @@
 				</div>
 			</fieldset>
 
-			<div>
+			<div class="buttons">
 				<button type="reset">RESET</button>
 				<button type="submit" class="ecore-validate-submit">SUBMIT</button>
 			</div>
 		</form>
 
+	</div>
+
+	<div class="ecore-validate-ui" style="display: none;">
+		<div class="">Errors found: <span class="error-count"></span></div>
+		<a class="ecore-validate-next">Go to Error</a>
 	</div>
 	<!-- Scripts -->
 	<script src="js/ecore-validation-ui.js"></script>
