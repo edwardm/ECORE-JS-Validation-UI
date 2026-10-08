@@ -1,21 +1,44 @@
 # ECORE-JS-Validation-UI
 
-## Summary
-This plugin allows for a toast style element to appear when a validation error occurs on a user form. This type of feature is already a common UI feature, but this takes it a step further by not only giving you an error count, but it wall take you to the first error to be addressed. Upon fixing the error (on event blur), it will automatically scroll to the next error if one exists. As fields are corrected, the error count will automatically re-calculate.
+A small form-validation helper that shows the number of invalid fields, scrolls to the first error, and refreshes the count as fields are corrected. It is designed to make long forms easier to navigate, especially on mobile devices.
 
-## What's so special?
-This plugin is intended for very long web forms where users may have a hard time trying to find where a validation errors occurs. This ideal situation would apply especially to mobile/tablet devices. I would recommend a UI aid such as this to allow for a more pleasant user experience with lengthy forms.
+## Demo
 
-## Getting Started
-```
-$ git clone https://github.com/edwardm/ECORE-JS-Validation-UI.git
-```
-```npm
-$ npm install
+The demo is in `src/copy/index.html`. It includes a long form with intentionally empty required fields.
+
+## Build and run
+
+```sh
+npm install
+npm run build
+npm run watch
 ```
 
-## Notes
-To get straight to the demo, I have already pre-filled data into the form, purposely leaving some fields blank to force a validation error, thus triggering the script. All you need to do is click "SUBMIT" down below.
+`npm run build` writes the demo and compiled assets to `dist/`. `npm run watch` builds the project and starts a local server that reloads when source files change.
+
+## Use on a form
+
+Add the `ecore-validate` class to a form that uses standard HTML constraints such as `required`, `type="email"`, or `min`. Add one validation summary to the page and load the compiled script:
+
+```html
+<form class="ecore-validate">
+  <label>
+    Email
+    <input name="email" type="email" required>
+  </label>
+  <button type="submit">Submit</button>
+</form>
+
+<aside class="ecore-validate-ui" role="status" aria-live="polite" aria-atomic="true" hidden>
+  <span>Errors found: <strong class="error-count">0</strong></span>
+  <button class="ecore-validate-next" type="button">Go to first error</button>
+</aside>
+
+<script src="js/ecore-validation-ui.js"></script>
+```
+
+The script prevents submission when the form contains invalid controls, marks those controls with `ecore-error`, and scrolls to the first invalid control. The summary updates on blur and control changes; after all errors are corrected, it is hidden. Include `css/main.css` for the demo's styling, or provide your own styles for the summary and `ecore-error` class. A single summary can be shared by multiple forms on the page.
 
 ## License
-The code is available under the [MIT License](LICENSE.md).
+
+Released under the [MIT License](LICENSE.md).
