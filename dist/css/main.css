@@ -1,456 +1,292 @@
-/*! ECORE-JS-Validation-UI v0.0.1 | (c) 2021 YOUR NAME | MIT License | https://github.com/edwardm/ECORE-JS-Validation-UI */
-/**
- * @section Base Styles
- */
-/* line 5, src/sass/components/_base.scss */
-a {
-  text-decoration: none;
+/*! ECORE-JS-Validation-UI v0.0.1 | (c) 2026 Edward Margallo | MIT License | https://github.com/edwardm/ECORE-JS-Validation-UI */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-/* css - ecore validation ui */
-/* colors */
-/* widths - content */
-/* css - ecore validation ui */
-/* line 3, src/sass/components/_styles.scss */
 html {
+  min-width: 320px;
   scroll-behavior: smooth;
 }
 
-/* line 7, src/sass/components/_styles.scss */
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 7rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-  color: #ccc;
+  min-height: 100vh;
   margin: 0;
+  padding: 6rem 1rem 3rem;
+  color: #ccc;
   background: #222;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-/* typography */
-/* line 22, src/sass/components/_styles.scss */
-a:not(.ecore-validate-next) {
-  background: -webkit-linear-gradient(left, #3898ff, #0069d9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  border-bottom: 1px dotted #666;
+a {
+  color: #3898ff;
 }
 
-/* line 29, src/sass/components/_styles.scss */
-h1 {
-  float: left;
-  font-size: 1.3rem;
-  font-weight: normal;
-  color: #666;
-  background: -webkit-linear-gradient(left, #3898ff, #0069d9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* layout */
-/* line 41, src/sass/components/_styles.scss */
 header {
-  padding: 0.2rem 0 0 1rem;
-  margin-bottom: 2rem;
   position: fixed;
   z-index: 1;
   top: 0;
   right: 0;
   left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 4.5rem;
+  padding: 0.5rem 1rem;
   background: #000;
   border-bottom: 1px solid #333;
   -webkit-box-shadow: 0 0 1rem #000;
           box-shadow: 0 0 1rem #000;
 }
-
-/* line 54, src/sass/components/_styles.scss */
+header h1 {
+  margin: 0;
+  color: #3898ff;
+  font-size: 1.25rem;
+  font-weight: normal;
+}
 header span {
-  float: right;
-  padding: 0.8rem 1rem 0 0;
-  font-size: 0.8rem;
-  color: #666;
+  color: #999;
+  font-size: 0.85rem;
 }
 
-/* line 62, src/sass/components/_styles.scss */
 .container {
+  width: min(100%, 48rem);
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(110deg, #222, #333);
   border-radius: 10px;
-  width: 50%;
-  padding-bottom: 3rem;
-  background: -webkit-linear-gradient(left, #222, #333);
-  -webkit-box-shadow: 0 0 5px 0 #000;
-  box-shadow: 0 0 5px 0 #000;
+  -webkit-box-shadow: 0 0 5px #000;
+          box-shadow: 0 0 5px #000;
+}
+.container section {
+  margin-bottom: 2.5rem;
 }
 
-/* line 71, src/sass/components/_styles.scss */
-.container > * {
-  margin: 5%;
-}
-
-/* line 76, src/sass/components/_styles.scss */
-section {
-  margin-bottom: 2rem;
-}
-
-/* line 80, src/sass/components/_styles.scss */
 .ecore-validate-ui {
   position: fixed;
+  z-index: 2;
   top: 35vh;
   right: 0;
-  width: auto;
-  padding: 0.6rem 0.8rem;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #000;
-  border: 1px solid #ccc;
-  border-top: 2px solid red;
-  border-right: none;
-  border-radius: 5px 0 0 5px;
-  background: #fff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eeeeee));
-  background: linear-gradient(to bottom, #fff 0%, #eeeeee 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$white', endColorstr='#eeeeee', GradientType=0);
-}
-
-/* line 102, src/sass/components/_styles.scss */
-.ecore-validate-ui > .error-count {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* line 108, src/sass/components/_styles.scss */
-.ecore-validate-ui .ecore-validate-next {
-  display: block;
-  cursor: pointer;
-  color: #fff;
-  padding: 0.4rem 2rem;
-  border-radius: 3px;
-  background: #ff3019;
-  background: linear-gradient(135deg, #ff3019 0%, #cf0404 100%);
-}
-
-/* line 122, src/sass/components/_styles.scss */
-form fieldset {
-  border: none;
-  padding: 0;
-  margin-bottom: 2rem;
-  border-top: 2px solid #666;
-}
-
-/* line 128, src/sass/components/_styles.scss */
-form fieldset legend {
-  background: -webkit-linear-gradient(left, #3898ff, #0069d9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 0 0.4rem 0 0;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-/* line 143, src/sass/components/_styles.scss */
-form fieldset .row > label,
-form fieldset .row > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding-bottom: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  color: #000;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: 2px solid red;
+  border-right: 0;
+  border-radius: 5px 0 0 5px;
+  -webkit-box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.25);
+}
+.ecore-validate-ui[hidden] {
+  display: none;
+}
+.ecore-validate-ui .error-count {
+  font-weight: bold;
+}
+.ecore-validate-ui .ecore-validate-next {
+  padding: 0.4rem 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #ff3019, #cf0404);
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  font: inherit;
+}
+.ecore-validate-ui:not([hidden]) {
+  -webkit-animation: slide-in 160ms ease-out;
+          animation: slide-in 160ms ease-out;
 }
 
-/* line 149, src/sass/components/_styles.scss */
-form fieldset .row > label span,
-form fieldset .row > div span {
-  font-size: 0.85rem;
-  letter-spacing: 0.02rem;
+form fieldset {
+  min-width: 0;
+  margin: 0 0 2rem;
+  padding: 0;
+  border: 0;
+  border-top: 2px solid #666;
+}
+form fieldset legend {
+  padding: 0 0.5rem 0 0;
+  color: #3898ff;
+  font-weight: bold;
   text-transform: uppercase;
 }
-
-/* line 157, src/sass/components/_styles.scss */
-form fieldset .row > label.required span::after,
-form fieldset .row > div.required span::after {
+form .row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1rem 0;
+}
+form .field {
+  display: block;
+  margin: 1rem 0;
+}
+form .field > span {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+form .field.required > span::after {
   content: "*";
-  margin-left: 5px;
+  margin-left: 0.3rem;
   color: red;
 }
-
-/* line 166, src/sass/components/_styles.scss */
 form input,
 form select,
 form textarea {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  width: 100%;
+  padding: 0.7rem 0.8rem;
   color: #fff;
-  padding: 0.7rem 1rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#222));
+  background: linear-gradient(#000, #222);
   border: 1px solid #333;
-  border-top: 1px solid #666;
+  border-top-color: #666;
   border-radius: 6px;
-  background: -webkit-linear-gradient(top, #000, #222);
+  font: inherit;
 }
-
-/* line 179, src/sass/components/_styles.scss */
+form input[type=radio],
+form input[type=checkbox] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+form textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
 form input:focus,
 form select:focus,
-form text-area:focus {
-  border-color: #666;
+form textarea:focus,
+form button:focus-visible {
+  outline: 2px solid #3898ff;
+  outline-offset: 2px;
 }
-
-/* line 192, src/sass/components/_styles.scss */
 form .ecore-error {
-  border: 1px solid red;
+  border-color: red;
 }
-
-/* line 196, src/sass/components/_styles.scss */
+form .choice-group {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #333;
+  border-radius: 6px;
+}
+form .choice-group legend.required::after {
+  content: "*";
+  margin-left: 0.3rem;
+  color: red;
+}
+form .choice-group label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.6rem 0;
+}
 form .buttons {
-  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 0.75rem;
 }
-
-/* line 199, src/sass/components/_styles.scss */
 form .buttons button {
-  display: inline-block;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0.6rem 1.5rem;
   color: #fff;
-  font-size: 1rem;
-  font-weight: normal;
-  letter-spacing: 0.02rem;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 0.6rem 2rem;
-  margin-left: 1rem;
-  border-radius: 5px;
+  background: linear-gradient(110deg, #3898ff, #0069d9);
   border: 1px solid #666;
-  border-top: 1px solid #fff;
-  background: -webkit-linear-gradient(left, #3898ff, #0069d9);
+  border-radius: 5px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
 }
-
-/* line 219, src/sass/components/_styles.scss */
 form .buttons button:hover {
   opacity: 0.9;
 }
 
-/* responsive tablet/mobile */
-@media screen and (max-width: 1023px) {
-  /* line 229, src/sass/components/_styles.scss */
+@-webkit-keyframes slide-in {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@media (max-width: 767px) {
+  body {
+    padding: 5rem 0.75rem 2rem;
+  }
+  header {
+    min-height: 4rem;
+    padding: 0.5rem 0.75rem;
+  }
+  header h1 {
+    font-size: 1rem;
+  }
+  header span {
+    font-size: 0.75rem;
+  }
   .container {
-    width: 80%;
+    padding: 1.25rem;
   }
-  /* line 232, src/sass/components/_styles.scss */
-  .container > * {
-    margin: auto 5%;
-  }
-  /* line 237, src/sass/components/_styles.scss */
   .ecore-validate-ui {
-    top: initial;
+    top: auto;
+    right: 10%;
     bottom: 0;
-    text-align: center;
-    width: 50vw;
-    left: 22.5vw;
+    left: 10%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     border-right: 1px solid #ccc;
     border-radius: 5px 5px 0 0;
   }
-}
-
-@media screen and (max-width: 767px) {
-  /* line 249, src/sass/components/_styles.scss */
-  .container {
-    width: 100%;
-  }
-  /* line 252, src/sass/components/_styles.scss */
-  .container > * {
-    margin: auto 5%;
-  }
-  /* line 257, src/sass/components/_styles.scss */
-  h1 span {
-    display: block;
+  form .row {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }
-
-/* animations */
-/* animations from https://animate.style/ */
-/* line 265, src/sass/components/_styles.scss */
-:root {
-  --animate-duration: 1s;
-  --animate-delay: 1s;
-  --animate-repeat: 1;
-}
-
-/* line 271, src/sass/components/_styles.scss */
-.animate__animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-duration: var(--animate-duration);
-  animation-duration: var(--animate-duration);
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes bounce {
-  from,
-  20%,
-  53%,
-  to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  40%,
-  43% {
-    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -30px, 0) scaleY(1.1);
-    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  .ecore-validate-ui:not([hidden]) {
+    -webkit-animation: none;
+            animation: none;
   }
-  70% {
-    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -15px, 0) scaleY(1.05);
-    transform: translate3d(0, -15px, 0) scaleY(1.05);
-  }
-  80% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -webkit-transform: translate3d(0, 0, 0) scaleY(0.95);
-    transform: translate3d(0, 0, 0) scaleY(0.95);
-  }
-  90% {
-    -webkit-transform: translate3d(0, -4px, 0) scaleY(1.02);
-    transform: translate3d(0, -4px, 0) scaleY(1.02);
-  }
-}
-
-@keyframes bounce {
-  from,
-  20%,
-  53%,
-  to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  40%,
-  43% {
-    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -30px, 0) scaleY(1.1);
-    transform: translate3d(0, -30px, 0) scaleY(1.1);
-  }
-  70% {
-    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -15px, 0) scaleY(1.05);
-    transform: translate3d(0, -15px, 0) scaleY(1.05);
-  }
-  80% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -webkit-transform: translate3d(0, 0, 0) scaleY(0.95);
-    transform: translate3d(0, 0, 0) scaleY(0.95);
-  }
-  90% {
-    -webkit-transform: translate3d(0, -4px, 0) scaleY(1.02);
-    transform: translate3d(0, -4px, 0) scaleY(1.02);
-  }
-}
-
-/* line 378, src/sass/components/_styles.scss */
-.animate__bounce {
-  -webkit-animation-name: bounce;
-  animation-name: bounce;
-  -webkit-transform-origin: center bottom;
-  transform-origin: center bottom;
-}
-
-@-webkit-keyframes shakeX {
-  from,
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-    transform: translate3d(-10px, 0, 0);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate3d(10px, 0, 0);
-    transform: translate3d(10px, 0, 0);
-  }
-}
-
-@keyframes shakeX {
-  from,
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-    transform: translate3d(-10px, 0, 0);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate3d(10px, 0, 0);
-    transform: translate3d(10px, 0, 0);
-  }
-}
-
-/* line 435, src/sass/components/_styles.scss */
-.animate__shakeX {
-  -webkit-animation-name: shakeX;
-  animation-name: shakeX;
-}
-
-@-webkit-keyframes fadeOutRight {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
-}
-
-@keyframes fadeOutRight {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
-}
-
-/* line 464, src/sass/components/_styles.scss */
-.animate__fadeOutRight {
-  -webkit-animation-name: fadeOutRight;
-  animation-name: fadeOutRight;
 }

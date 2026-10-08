@@ -2,21 +2,19 @@
 	"name": "ECORE-JS-Validation-UI",
 	"version": "0.0.1",
 	"description": "Allows for a toast style element to appear when a validation error occurs on a user form.",
-	"main": "./dist/your-main-js-file.js",
+	"main": "./dist/js/ecore-validation-ui.js",
+	"scripts": {
+		"build": "gulp",
+		"watch": "gulp watch"
+	},
 	"author": {
-		"name": "YOUR NAME",
+		"name": "Edward Margallo",
 		"url": "https://www.edwardmargallo.com/"
 	},
 	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/edwardm/ECORE-JS-Validation-UI"
-	},
-	"boilerplate": {
-		"version": "2.2.6",
-		"author": "Chris Ferdinandi",
-		"url": "https://gomakethings.com",
-		"repo": "http://github.com/cferdinandi/gulp-boilerplate"
 	},
 	"browserslist": [
 		"last 2 versions",
@@ -33,16 +31,14 @@
 		"gulp-header": "2.0.5",
 		"gulp-jshint": "2.1.0",
 		"gulp-optimize-js": "1.1.0",
+		"gulp-postcss": "^9.0.0",
 		"gulp-rename": "1.4.0",
-		"gulp-sass": "4.0.2",
+		"gulp-sass": "^5.1.0",
 		"gulp-svgmin": "2.1.0",
 		"gulp-terser": "1.1.7",
 		"jshint": "^2.12.0",
 		"jshint-stylish": "2.2.1",
 		"lazypipe": "1.0.1",
-		"node-sass": "^4.14.1"
-	},
-	"dependencies": {
-		"gulp-postcss": "^9.0.0"
+		"sass": "^1.77.8"
 	}
 }
