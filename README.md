@@ -8,13 +8,15 @@ The demo is in `src/copy/index.html`. It includes a long form with intentionally
 
 ## Build and run
 
+Node.js 22 or newer is required.
+
 ```sh
 npm install
 npm run build
 npm run watch
 ```
 
-`npm run build` writes the demo and compiled assets to `dist/`. `npm run watch` builds the project and starts a local server that reloads when source files change.
+`npm run build` writes the demo and compiled assets to `dist/`. `npm run watch` builds the project, serves it at `http://localhost:3000`, and reloads the page when source files change.
 
 ## Use on a form
 
