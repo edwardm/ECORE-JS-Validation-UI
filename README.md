@@ -13,6 +13,7 @@ Node.js 22 or newer is required.
 ```sh
 npm install
 npm run build
+npm run dev
 npm run watch
 ```
 
