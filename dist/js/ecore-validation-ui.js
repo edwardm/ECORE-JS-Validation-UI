@@ -32,11 +32,11 @@
     }
 
     function clearHighlights() {
-        forms.forEach((function (form) {
-            form.querySelectorAll(".ecore-error").forEach((function (control) {
+        forms.forEach(function (form) {
+            form.querySelectorAll(".ecore-error").forEach(function (control) {
                 control.classList.remove("ecore-error");
-            }));
-        }));
+            });
+        });
     }
 
     function update(form, reveal) {
@@ -55,9 +55,9 @@
             return;
         }
 
-        invalidControls.forEach((function (control) {
+        invalidControls.forEach(function (control) {
             control.classList.add("ecore-error");
-        }));
+        });
 
         validationUi.hidden = false;
         invalidControls[0].scrollIntoView({
@@ -66,42 +66,42 @@
         });
     }
 
-    forms.forEach((function (form) {
+    forms.forEach(function (form) {
         form.noValidate = true;
-        form.addEventListener("submit", (function (event) {
+        form.addEventListener("submit", function (event) {
             var invalidControls = getInvalidControls(form);
             update(form, true);
 
             if (invalidControls.length) {
                 event.preventDefault();
             }
-        }));
+        });
 
-        form.addEventListener("focusout", (function (event) {
+        form.addEventListener("focusout", function (event) {
             if (event.target.matches("input, select, textarea")) {
                 update(form, true);
             }
-        }));
+        });
 
-        form.addEventListener("change", (function (event) {
+        form.addEventListener("change", function (event) {
             if (event.target.matches("input, select, textarea")) {
                 update(form, true);
             }
-        }));
+        });
 
-        form.addEventListener("reset", (function () {
-            window.setTimeout((function () {
+        form.addEventListener("reset", function () {
+            window.setTimeout(function () {
                 activeForm = form;
                 errorCount.textContent = getInvalidControls(form).length;
                 clearHighlights();
                 validationUi.hidden = true;
-            }), 0);
-        }));
-    }));
+            }, 0);
+        });
+    });
 
-    nextError.addEventListener("click", (function () {
+    nextError.addEventListener("click", function () {
         update(activeForm, true);
-    }));
+    });
 
     update(activeForm, false);
 })();
